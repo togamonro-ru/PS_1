@@ -26,15 +26,17 @@ class MyScene extends Phaser.Scene {
     
   // 毎フレーム実行される繰り返し処理
     update() {
-        if (this.player1.x >= D_WIDTH - 100) this.player1_direction = -1;
-        if (this.player1.x <= 100) this.player1_direction = 1;
+        if (this.player1.x >= D_WIDTH - 50) this.player1_direction = -1;
+        if (this.player1.x <= 50) this.player1_direction = 1;
 
         if (this.player1_direction == 1) {
             this.player1.x += 5;// 横方向へ移動を設定
             this.player1.y += 5;
+            this.player1.angle += 5;
         } else {
             this.player1.x -= 5;// 横方向へ移動を設定
             this.player1.y -= 5;
+            this.player1.angle += 5;
         }
     }
 
