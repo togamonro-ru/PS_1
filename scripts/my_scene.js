@@ -19,12 +19,13 @@ class MyScene extends Phaser.Scene {
     // シーン初期化処理
     create() {
          // 単体画像をシーンに追加(X座標,Y座標,画像名)
-        this.add.image(D_WIDTH/2, D_HEIGHT/2, 'background');
-        this.player1 = this.add.image(500, 350, 'taro');
-        this.player1_direction = 1;
-        this.player2 = this.add.image(600, 350, 'jori');
-        this.player2_direction = 1;
-        this.text = this.add.text(10, 10, 'Scene 1').setFontSize(32).setColor('#ff0');
+         this.add.image(D_WIDTH/2, D_HEIGHT/2, 'background');
+         this.player1 = this.add.image(500, 350, 'taro');
+         this.player1_direction = 1;
+         this.player2 = this.add.image(600, 350, 'jori');
+         this.player2_direction = 1;
+         this.text = this.add.text(10, 10, 'Scene 1').setFontSize(32).setColor('#ff0');
+         this.Text = this.add.text(600, 400, 'MyWorld', { fontSize: '28px', fill: '#FFF' ,fontFamily: "Arial"});
     }
     
   // 毎フレーム実行される繰り返し処理
@@ -51,11 +52,11 @@ class MyScene extends Phaser.Scene {
         } else if (cursors.left.isDown) {
         //console.log("Left!");
         this.player1.x -= 50;// 右方向に移動
-        this.player2.x -= 50;// 左方向に移動
+        this.player2.x += 50;// 左方向に移動
         } else if (cursors.right.isDown) {
         //console.log("Right!");
         this.player1.x += 50;// 右方向に移動
-        this.player2.x += 50;// 右方向に移動
+        this.player2.x -= 50;// 右方向に移動
         }
     }
 
