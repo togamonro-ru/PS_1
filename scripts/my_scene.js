@@ -151,6 +151,7 @@ class MyScene extends Phaser.Scene {
     }
     attack_hanako(player, hanako) {
         this.Text.setText('痛い');
+        hanako.destroy();
         this.player.setTint(0x999999);
     }
 
