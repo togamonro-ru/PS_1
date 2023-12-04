@@ -24,8 +24,19 @@ class MyScene extends Phaser.Scene {
          this.player1_direction = 1;
          this.player2 = this.add.image(600, 350, 'jori');
          this.player2_direction = 1;
+
+
          this.text = this.add.text(10, 10, 'Scene 1').setFontSize(32).setColor('#ff0');
-         this.Text = this.add.text(600, 400, 'MyWorld', { fontSize: '28px', fill: '#FFF' ,fontFamily: "Arial"});
+        this.Text = this.add.text(600, 400, 'MyWorld', { fontSize: '28px', fill: '#FFF' ,fontFamily: "Arial"});
+        this.a_Text = this.add.text(100, 50, '', { fontSize: '28px', fill: '#FFF' ,fontFamily: "Arial"});
+        this.s_Text = this.add.text(100, 50, '', { fontSize: '28px', fill: '#FFF' ,fontFamily: "Arial"});
+
+        ///WASDキーを検知できるようにする
+        this.keys = {};
+        this.keys.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        this.keys.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        this.keys.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        this.keys.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
     }
     
   // 毎フレーム実行される繰り返し処理
@@ -58,6 +69,18 @@ class MyScene extends Phaser.Scene {
         this.player1.x += 50;// 右方向に移動
         this.player2.x -= 50;// 右方向に移動
         }
+        this.wasd_move(this.keys, this.a_Text);
+        this.wasd_move(this.keys, this.s_Text);
     }
-
+    
+    wasd_move(keys, object){
+        if(keys.keyS.isDown){
+            this.s_Text.setText('Hey!');
+        }else if(keys.keyA.isDown){
+            this.a_Text.setText('Hello!');
+        }else if(keys.keyD.isDown){
+            this.a_Text.setText('');
+            this.s_Text.setText('');
+        }
+    }
 }
